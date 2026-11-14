@@ -1,0 +1,6 @@
+{
+  "name": "Delo Diesel – Oficina Mecânica Diesel e Socorro 24h",
+  "description": "Oficina mecânica especializada em diesel desde 1999. Manutenção de caminhões, carros, equipamentos pesados, caminhão-prancha e socorro 24 horas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

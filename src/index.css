@@ -1,0 +1,277 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Barlow Condensed", sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-petrol-950: #040d17;
+  --color-petrol-900: #071626;
+  --color-petrol-800: #0b2239;
+  --color-industrial-black: #05080d;
+  --color-safety-yellow: #f5c518;
+  --color-safety-amber: #eab308;
+  --color-metallic-silver: #cbd5e1;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: #040d17;
+    color: #ffffff;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ==========================================================================
+   INDUSTRIAL MOTION ENGINE (Compositor-only GPU animations)
+   ========================================================================== */
+
+@keyframes wheel-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes road-scroll-loop {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes suspension-float {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate3d(0, -1.4px, 0) rotate(-0.12deg);
+  }
+  50% {
+    transform: translate3d(0, 0.8px, 0) rotate(0.08deg);
+  }
+  75% {
+    transform: translate3d(0, -0.9px, 0) rotate(-0.06deg);
+  }
+}
+
+@keyframes engine-idle-micro {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -0.6px, 0);
+  }
+}
+
+@keyframes headlight-breath {
+  0%, 100% {
+    opacity: 0.78;
+    transform: scaleX(1);
+  }
+  50% {
+    opacity: 0.96;
+    transform: scaleX(1.03);
+  }
+}
+
+@keyframes beacon-glow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes gear-cw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gear-ccw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes excavator-boom {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-6deg);
+  }
+}
+
+@keyframes excavator-stick {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(9deg);
+  }
+}
+
+@keyframes excavator-bucket {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-12deg);
+  }
+}
+
+@keyframes injector-pulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scaleY(0.9);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scaleY(1.08);
+  }
+}
+
+@keyframes horizon-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.anim-wheel-spin {
+  animation: wheel-spin 1.15s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.anim-wheel-spin-cargo {
+  animation: wheel-spin 8s ease-in-out infinite alternate;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.anim-road-scroll {
+  animation: road-scroll-loop 2.4s linear infinite;
+  will-change: transform;
+}
+
+.anim-horizon-drift {
+  animation: horizon-drift 28s linear infinite;
+  will-change: transform;
+}
+
+.anim-suspension {
+  animation: suspension-float 3.4s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  will-change: transform;
+}
+
+.anim-engine-idle {
+  animation: engine-idle-micro 0.45s ease-in-out infinite;
+  will-change: transform;
+}
+
+.anim-headlight {
+  animation: headlight-breath 3.2s ease-in-out infinite;
+  transform-origin: left center;
+}
+
+.anim-beacon {
+  animation: beacon-glow 1.6s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.anim-gear-cw {
+  animation: gear-cw 14s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.anim-gear-ccw {
+  animation: gear-ccw 10s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.anim-excavator-boom {
+  animation: excavator-boom 6.5s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+  transform-box: fill-box;
+  transform-origin: 20% 80%;
+}
+
+.anim-excavator-stick {
+  animation: excavator-stick 6.5s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+  transform-box: fill-box;
+  transform-origin: 75% 15%;
+}
+
+.anim-excavator-bucket {
+  animation: excavator-bucket 6.5s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+  transform-box: fill-box;
+  transform-origin: 35% 15%;
+}
+
+.anim-injector-pulse {
+  animation: injector-pulse 2.2s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: top center;
+}
+
+/* Tire tread subtle footer pattern */
+.tire-tread-bg {
+  background-image: repeating-linear-gradient(
+    -35deg,
+    rgba(255, 255, 255, 0.025) 0px,
+    rgba(255, 255, 255, 0.025) 6px,
+    transparent 6px,
+    transparent 16px
+  );
+}
+
+/* Respect prefers-reduced-motion strictly */
+@media (prefers-reduced-motion: reduce) {
+  .anim-wheel-spin,
+  .anim-wheel-spin-cargo,
+  .anim-road-scroll,
+  .anim-horizon-drift,
+  .anim-suspension,
+  .anim-engine-idle,
+  .anim-headlight,
+  .anim-beacon,
+  .anim-gear-cw,
+  .anim-gear-ccw,
+  .anim-excavator-boom,
+  .anim-excavator-stick,
+  .anim-excavator-bucket,
+  .anim-injector-pulse {
+    animation: none !important;
+  }
+}
